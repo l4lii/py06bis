@@ -104,7 +104,7 @@ if __name__ == "__main__":
     print(f"Trying to validate input 'Hello': {numeric.validate('Hello')}")
     print("Test invalid ingestion of string 'foo' without prior validation:")
     try:
-        numeric.ingest("foo") # type: ignore
+        numeric.ingest("foo")
     except ValueError as e:
         print("Got exception:", e)
     print("Processing data: [1, 2, 3, 4, 5]")

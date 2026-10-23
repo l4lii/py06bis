@@ -200,3 +200,23 @@ if __name__ == "__main__":
     print("Send 3 processed data from each processor to a CSV plugin:")
     stream.output_pipeline(3, CSVExportPlugin())
     stream.print_processors_stats()
+    batch2: list[Any] = [
+        21,
+        ['I love AI', 'LLMs are wonderful', 'Stay healthy'],
+        {
+            'log_level': 'ERROR',
+            'log_message': '500 server crash'
+        },
+        {
+            'log_level': 'NOTICE',
+            'log_message': 'Certificate expires in 10 days'
+        },
+        [32, 42, 64, 84, 128, 168],
+        'World hello'
+    ]
+    print(f"Send another batch of data: {batch2}")
+    stream.process_stream(batch2)
+    stream.print_processors_stats()
+    print("Send 5 processed data from each processor to a JSON plugin:")
+    stream.output_pipeline(5, JSONExportPlugin())
+    stream.print_processors_stats()
